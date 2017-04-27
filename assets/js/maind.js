@@ -1202,20 +1202,29 @@ var listaTareas = [
   }
 ]
 
+var tareas = [];
+
 var boton = document.getElementById("boton");
 var lista = document.getElementById("lista");
 var texto = document.getElementById("texto");
 
-var salida = [];
-
-for (var i = 0; i <= 10; i++) {
-  lista.innerHTML += "<li>"+listaTareas[i].title+"<li>";
+for (var i = 0; i < 10; i++) {
+  tareas.push({titulo:listaTareas[i].title});
 }
+
 boton.addEventListener("click", anadirTarea, false);
+
+function mostrarTareas(){
+  tareas.forEach(function(tarea){
+    lista.innerHTML += "<li>" + tarea.titulo + "</li>";
+  });
+}
 
 function anadirTarea(evento){
   var txt = texto.value;
-  var item = "<li>" + txt + "</li>";
-  lista.innerHTML += item;
+  tareas.push({titulo: txt});
+  lista.innerHTML = "";
+  mostrarTareas();
 }
-traducir()
+
+mostrarTareas();
