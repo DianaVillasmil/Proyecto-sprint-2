@@ -1200,7 +1200,6 @@ var listaTareas = [
     "completed": false
   }
 ]
-
 var salida =;
 
 for (var i = 0; i < listaTareas.length; i++) {
