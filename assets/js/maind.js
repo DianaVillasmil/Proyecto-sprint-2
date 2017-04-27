@@ -1200,3 +1200,21 @@ var listaTareas = [
     "completed": false
   }
 ]
+
+var salida =;
+
+for (var i = 0; i < listaTareas.length; i++) {
+  salida += listaTareas.length[i];
+}
+
+var boton = document.getElementById("boton");
+var lista = document.getElementById("lista");
+var texto = document.getElementById("texto");
+
+boton.addEventListener("click", anadirTarea, false);
+
+function anadirTarea(evento){
+  var txt = texto.value;
+  var item = "<li>" + txt + "</li>";
+  lista.innerHTML += item;
+}
