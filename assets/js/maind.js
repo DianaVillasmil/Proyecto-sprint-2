@@ -1193,7 +1193,7 @@ var listaTareas = [
     "title": "numquam repellendus a magnam",
     "completed": true
   },
-  
+
   {
     "userId": 10,
     "id": 200,
@@ -1212,6 +1212,7 @@ var lista = document.getElementById("lista");
 var texto = document.getElementById("texto");
 
 boton.addEventListener("click", anadirTarea, false);
+
 
 function anadirTarea(evento){
   var txt = texto.value;
