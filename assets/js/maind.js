@@ -1209,22 +1209,33 @@ var lista = document.getElementById("lista");
 var texto = document.getElementById("texto");
 
 for (var i = 0; i < 10; i++) {
-  tareas.push({titulo:listaTareas[i].title});
+  tareas.push({titulo: listaTareas[i].title, modificarTarea: modificarTareaFn
+});
 }
 
 boton.addEventListener("click", anadirTarea, false);
 
 function mostrarTareas(){
-  tareas.forEach(function(tarea){
-    lista.innerHTML += "<li>" + tarea.titulo + "</li>";
-  });
+  lista.innerHTML = "";
+  tareas.forEach(function(tarea, i){
+  lista.innerHTML += "<li>" + tarea.titulo + "<button style='margin-left:10px;' onclick='tareas["+ i +"].modificarTarea()'>Modificar</button></li>";
+});
 }
 
 function anadirTarea(evento){
   var txt = texto.value;
-  tareas.push({titulo: txt});
-  lista.innerHTML = "";
+  tareas.push({titulo: txt, modificarTarea: modificarTareaFn
+});
+
+  mostrarTareas();
+
+}
+
+function modificarTareaFn(){
+  var nuevoTitulo = prompt('ingrese el nuevo titulo de la tarea');
+  this.titulo = nuevoTitulo;
   mostrarTareas();
 }
 
 mostrarTareas();
+
